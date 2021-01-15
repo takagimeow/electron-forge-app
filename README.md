@@ -99,6 +99,68 @@ yarn add react react-dom
 yarn add -D @types/react @types/react-dom
 ```
 
+react-router-domを導入する
+
+```bash
+yarn add react-router-dom
+yarn add -D @types/react-router-dom
+```
 ## ホットリロード
 
-標準でONになっているため、コードを更新したら、デベロッパーコンソールを開いた状態で```ctrl-R```を押すと画面が更新される。
+標準でONになっているため、コードを更新したら、デベロッパーコンソールを開いた状態で```ctrl-shift-R```を押すと画面が更新される。
+
+## tailwindcssの導入
+
+```bash
+yarn add tailwindcss@latest postcss@latest autporefixer@latest
+```
+
+webpackのローダーのpostcss-loaderをインストールする。
+
+```bash
+yarn add -D postcss-loader
+```
+
+webpack.renderer.config.jsでrulesにpushされているオブジェクトを編集してpostcss-loaderを使うように設定する。
+
+```js
+// webpack.renderer.config.js
+
+rules.push({
+  test: /\.css$/,
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader', options: { importLoaders: 1 } },
+    'postcss-loader',
+  ],
+});
+```
+
+```postcss.config.js```ファイルを作成する。
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+```
+
+tailwindcssのコンフィグファイルを生成する。
+
+```bash
+npx tailwindcss init
+```
+
+```src/index.css```に下記のブロックを追加する。
+
+```css
+/* ./your-css-folder/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+プロダクション段階で必要のないファイルを削除するため、purgeオプションを設定する。

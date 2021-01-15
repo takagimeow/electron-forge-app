@@ -30,16 +30,19 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { App } from 'src/renderer/components/App';
 import { Layout } from 'src/renderer/components/Layout';
 
-// import 'tailwindcss/tailwind.css';
+import 'tailwindcss/tailwind.css';
 import './index.css';
 
 const Index = () => (
-  <Layout>
-    <App />
-  </Layout>
+  <Router>
+    <Layout>
+      <App />
+    </Layout>
+  </Router>
 );
 
 ReactDOM.render(<Index />, document.getElementById('app'));

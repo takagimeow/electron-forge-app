@@ -4,7 +4,11 @@ const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 
 rules.push({
   test: /\.css$/,
-  use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader', options: { importLoaders: 1 } },
+    'postcss-loader',
+  ],
 });
 
 module.exports = {
