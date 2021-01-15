@@ -184,3 +184,7 @@ yarn add tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-comp
 yarn remove tailwindcss @tailwindcss/postcss7-compat
 yarn add tailwindcss@latest postcss@latest autoprefixer@latest
 ```
+
+### 参考にしたサイト
+[Error: PostCSS plugin tailwindcss requires PostCSS 8](https://stackoverflow.com/questions/64925926/error-postcss-plugin-tailwindcss-requires-postcss-8)
+[PostCSS 7 compatibility build](https://tailwindcss.com/docs/installation#post-css-7-compatibility-build)
