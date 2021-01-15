@@ -89,3 +89,16 @@ yarn add -D eslint-config-prettier eslint-plugin-prettier
   "endOfLine": "auto"
 }
 ```
+
+## Reactの導入
+
+tsconfig.jsonに```"jsx": "react"```を追加する。
+
+```bash
+yarn add react react-dom
+yarn add -D @types/react @types/react-dom
+```
+
+## ホットリロード
+
+標準でONになっているため、コードを更新したら、デベロッパーコンソールを開いた状態で```ctrl-R```を押すと画面が更新される。
