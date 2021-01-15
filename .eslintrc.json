@@ -1,15 +1,42 @@
 {
+  "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
   "env": {
     "browser": true,
     "es6": true,
     "node": true
   },
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings"
+  "parser": "@typescript-eslint/parser",
+  "extends": ["airbnb-typescript/base", "prettier"],
+  "globals": {
+    "fetch": false
+  },
+  "rules": {
+    "indent": "off",
+    "@typescript-eslint/indent": ["off", "tab"],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto",
+        "trailingComma": "all"
+      }
     ],
-    "parser": "@typescript-eslint/parser"
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "no-undef": "off",
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "import/prefer-default-export": "off",
+    //"no-unsafe-member-access": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false
+      }
+    ]
+  }
 }
