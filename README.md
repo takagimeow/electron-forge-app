@@ -61,3 +61,31 @@ const createWindow = (): void => {
   mainWindow.webContents.openDevTools();
 };
 ```
+
+## ESLint
+
+eslintは導入されているのでコーディングスタイルをインストールします。
+
+```bash
+yarn add -D eslint-config-airbnb-base eslint-plugin-import eslint-config-airbnb-typescript
+```
+
+次にprettierをインストールします
+
+```bash
+yarn add -D eslint-config-prettier eslint-plugin-prettier
+```
+
+ルートディレクトリに.prettierrcファイルを作成します。
+
+```.prettierrc
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "useTabs": false,
+  "endOfLine": "auto"
+}
+```
