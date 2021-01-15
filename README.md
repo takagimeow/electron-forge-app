@@ -164,3 +164,23 @@ npx tailwindcss init
 ```
 
 プロダクション段階で必要のないファイルを削除するため、purgeオプションを設定する。
+
+## Storybookを導入
+
+```bash
+npx sb init
+```
+
+storybookのインストールが完了した後に```yarn run storybook```を実行しようとすると```ERROR in ./src/stories/header.css```のようなエラーが発生して実行できない。理由はtailwindcssがPostCSS8に依存しているためでstorybookではPostCSS7に依存しているからである。なのでtailwindcssをPostCSS7とも互換性のあるバージョンに変更してあげないといけない。
+
+```bash
+yarn remove tailwindcss postcss autoprefixer
+yarn add tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+```
+
+これで動くようになる。もしstorybookがPostCSS8に対応した暁にはtailwindcssを最新のバージョンに変更してあげる必要がある。
+
+```bash
+yarn remove tailwindcss @tailwindcss/postcss7-compat
+yarn add tailwindcss@latest postcss@latest autoprefixer@latest
+```
